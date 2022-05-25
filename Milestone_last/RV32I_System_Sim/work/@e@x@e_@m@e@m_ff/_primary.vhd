@@ -1,0 +1,48 @@
+library verilog;
+use verilog.vl_types.all;
+entity EXE_MEM_ff is
+    port(
+        clk             : in     vl_logic;
+        ID_EXE_pc       : in     vl_logic_vector(31 downto 0);
+        ID_EXE_funct3   : in     vl_logic_vector(2 downto 0);
+        ID_EXE_rs2      : in     vl_logic_vector(4 downto 0);
+        ID_EXE_rd       : in     vl_logic_vector(4 downto 0);
+        MEM_WB_rd       : in     vl_logic_vector(4 downto 0);
+        result          : in     vl_logic_vector(31 downto 0);
+        rs2_data        : in     vl_logic_vector(31 downto 0);
+        rd_data         : in     vl_logic_vector(31 downto 0);
+        ID_EXE_rs2_data : in     vl_logic_vector(31 downto 0);
+        memwrite        : in     vl_logic;
+        Nflag           : in     vl_logic;
+        Zflag           : in     vl_logic;
+        Cflag           : in     vl_logic;
+        Vflag           : in     vl_logic;
+        branch          : in     vl_logic;
+        jal             : in     vl_logic;
+        jalr            : in     vl_logic;
+        memtoreg        : in     vl_logic;
+        regwrite        : in     vl_logic;
+        jal_dest        : in     vl_logic_vector(31 downto 0);
+        jalr_dest       : in     vl_logic_vector(31 downto 0);
+        branch_dest     : in     vl_logic_vector(31 downto 0);
+        EXE_MEM_pc      : out    vl_logic_vector(31 downto 0);
+        EXE_MEM_funct3  : out    vl_logic_vector(2 downto 0);
+        EXE_MEM_rs2     : out    vl_logic_vector(4 downto 0);
+        EXE_MEM_rd      : out    vl_logic_vector(4 downto 0);
+        EXE_MEM_rs2_data: out    vl_logic_vector(31 downto 0);
+        EXE_MEM_aluout  : out    vl_logic_vector(31 downto 0);
+        EXE_MEM_memwrite: out    vl_logic;
+        EXE_MEM_regwrite: out    vl_logic;
+        EXE_MEM_Nflag   : out    vl_logic;
+        EXE_MEM_Zflag   : out    vl_logic;
+        EXE_MEM_Cflag   : out    vl_logic;
+        EXE_MEM_Vflag   : out    vl_logic;
+        EXE_MEM_branch  : out    vl_logic;
+        EXE_MEM_jal     : out    vl_logic;
+        EXE_MEM_jalr    : out    vl_logic;
+        EXE_MEM_memtoreg: out    vl_logic;
+        EXE_MEM_jal_dest: out    vl_logic_vector(31 downto 0);
+        EXE_MEM_jalr_dest: out    vl_logic_vector(31 downto 0);
+        EXE_MEM_branch_dest: out    vl_logic_vector(31 downto 0)
+    );
+end EXE_MEM_ff;
